@@ -409,3 +409,225 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* CALENDAR */
+
+.calendar-page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calendar-header h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+}
+
+.calendar-header h1 span {
+    color: #718b75;
+}
+
+.calendar-header p {
+    color: #66736a;
+    line-height: 1.6;
+}
+
+
+/* CALENDAR CARD */
+
+.calendar-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.calendar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.calendar-top h2 {
+    font-size: 24px;
+}
+
+.calendar-top button {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    font-size: 25px;
+}
+
+
+/* WEEKDAYS */
+
+.weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.weekdays div {
+    text-align: center;
+    font-weight: bold;
+    color: #718b75;
+    padding: 10px;
+}
+
+
+/* CALENDAR DAYS */
+
+.calendar-day {
+    min-height: 65px;
+    background: #f4f7f3;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+
+.calendar-day:hover {
+    background: #e3ebe4;
+    transform: translateY(-2px);
+}
+
+.calendar-day.today {
+    border: 2px solid #718b75;
+}
+
+.calendar-day.selected {
+    background: #dce8de;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.day-number {
+    font-weight: bold;
+}
+
+.day-indicators {
+    position: absolute;
+    bottom: 7px;
+    left: 8px;
+    font-size: 12px;
+}
+
+
+/* TODAY BUTTON */
+
+.today-button {
+    margin-top: 20px;
+}
+
+
+/* SELECTED DATE */
+
+.selected-date-card,
+.reminder-card,
+.history-section {
+    background: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.selected-date-card h2,
+.reminder-card h2,
+.history-section h2 {
+    margin-bottom: 15px;
+}
+
+
+/* REMINDER */
+
+.reminder-card input,
+.reminder-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5ddd6;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.reminder-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.reminder-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.save-reminder-button {
+    margin-top: 25px;
+}
+
+
+/* REMINDER / HISTORY ITEMS */
+
+.reminder-item,
+.history-item {
+    background: #f4f7f3;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 12px;
+    border-left: 4px solid #718b75;
+}
+
+.reminder-item h3,
+.history-item h3 {
+    margin-bottom: 7px;
+}
+
+.reminder-date,
+.history-date {
+    font-size: 13px;
+    color: #718b75;
+    margin-bottom: 8px;
+}
+
+.history-description {
+    color: #66736a;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .weekdays,
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        min-height: 50px;
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .day-indicators {
+        font-size: 9px;
+    }
+
+    .reminder-row {
+        grid-template-columns: 1fr;
+    }
+
+}

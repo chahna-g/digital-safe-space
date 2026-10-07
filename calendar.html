@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar | Digital Safe Space</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌿 Digital Safe Space
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="journal.html">Journal</a>
+        <a href="mood.html">Mood</a>
+        <a href="calendar.html">Calendar</a>
+    </nav>
+
+</header>
+
+
+<main class="calendar-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="calendar-header">
+
+        <p class="welcome">
+            YOUR PERSONAL SPACE
+        </p>
+
+        <h1>
+            Your <span>Calendar</span>
+        </h1>
+
+        <p>
+            Keep track of important moments, reminders,
+            journal entries and things you want to remember.
+        </p>
+
+    </section>
+
+
+    <!-- CALENDAR -->
+
+    <section class="calendar-card">
+
+        <div class="calendar-top">
+
+            <button onclick="changeMonth(-1)">
+                ‹
+            </button>
+
+            <h2 id="monthYear"></h2>
+
+            <button onclick="changeMonth(1)">
+                ›
+            </button>
+
+        </div>
+
+
+        <div class="weekdays">
+
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+
+        </div>
+
+
+        <div id="calendarDays" class="calendar-days"></div>
+
+
+        <button class="today-button" onclick="goToToday()">
+            Go to Today
+        </button>
+
+    </section>
+
+
+    <!-- SELECTED DATE -->
+
+    <section class="selected-date-card">
+
+        <h2 id="selectedDateTitle">
+            Select a date
+        </h2>
+
+        <div id="selectedDateContent">
+
+            <p>
+                Choose a date from the calendar to see
+                your journal entries, moods and reminders.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADD REMINDER -->
+
+    <section class="reminder-card">
+
+        <h2>
+            ⏰ Add a Reminder
+        </h2>
+
+        <p>
+            Set something you don't want to forget.
+        </p>
+
+
+        <label for="reminderTitle">
+            Reminder
+        </label>
+
+        <input
+            type="text"
+            id="reminderTitle"
+            placeholder="Example: Take a break"
+        >
+
+
+        <div class="reminder-row">
+
+            <div>
+
+                <label for="reminderDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="reminderDate"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="reminderTime">
+                    Time
+                </label>
+
+                <input
+                    type="time"
+                    id="reminderTime"
+                >
+
+            </div>
+
+        </div>
+
+
+        <label for="reminderRepeat">
+            Repeat
+        </label>
+
+        <select id="reminderRepeat">
+
+            <option value="none">
+                Doesn't repeat
+            </option>
+
+            <option value="daily">
+                Daily
+            </option>
+
+            <option value="weekly">
+                Weekly
+            </option>
+
+            <option value="monthly">
+                Monthly
+            </option>
+
+        </select>
+
+
+        <button
+            class="save-reminder-button"
+            onclick="saveReminder()"
+        >
+            🔔 Save Reminder
+        </button>
+
+    </section>
+
+
+    <!-- UPCOMING REMINDERS -->
+
+    <section class="history-section">
+
+        <h2>
+            ⏰ Upcoming Reminders
+        </h2>
+
+        <div id="upcomingReminders">
+
+            <p class="empty-message">
+                No upcoming reminders.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section class="history-section">
+
+        <h2>
+            📚 Your History
+        </h2>
+
+        <p class="history-description">
+            Look back at your previous reminders,
+            journal entries and moods.
+        </p>
+
+        <div id="history">
+
+            <p class="empty-message">
+                Your previous activity will appear here.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        🔒 Your space. Your thoughts. Your privacy.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -972,3 +972,138 @@ loadCalendar();
 displayReminders();
 
 displayHistory();
+/* REMINDER NOTIFICATIONS */
+
+function enableNotifications() {
+
+    if (!("Notification" in window)) {
+
+        alert(
+            "Your browser does not support notifications."
+        );
+
+        return;
+    }
+
+    Notification.requestPermission().then(function(permission) {
+
+        if (permission === "granted") {
+
+            alert(
+                "Reminder notifications are enabled! 🔔"
+            );
+
+        } else {
+
+            alert(
+                "Notification permission was not granted."
+            );
+
+        }
+
+    });
+}
+
+
+function checkReminders() {
+
+    const reminders =
+        JSON.parse(
+            localStorage.getItem("reminders")
+        ) || [];
+
+
+    const now = new Date();
+
+
+    reminders.forEach(function(reminder) {
+
+        const reminderDateTime =
+            new Date(
+                reminder.date +
+                "T" +
+                reminder.time
+            );
+
+
+        const difference =
+            now.getTime() -
+            reminderDateTime.getTime();
+
+
+        /*
+         * Trigger when the reminder time
+         * has just been reached.
+         */
+
+        if (
+            difference >= 0 &&
+            difference < 60000 &&
+            !reminder.notified
+        ) {
+
+            showReminderNotification(
+                reminder
+            );
+
+
+            reminder.notified = true;
+
+        }
+
+    });
+
+
+    localStorage.setItem(
+        "reminders",
+        JSON.stringify(reminders)
+    );
+
+}
+
+
+function showReminderNotification(reminder) {
+
+    if (
+        "Notification" in window &&
+        Notification.permission === "granted"
+    ) {
+
+        new Notification(
+            "🌿 Digital Safe Space",
+            {
+                body:
+                    "⏰ " +
+                    reminder.title,
+
+                icon: ""
+            }
+        );
+
+    } else {
+
+        alert(
+            "⏰ Reminder: " +
+            reminder.title
+        );
+
+    }
+
+}
+
+
+/*
+ * Check reminders every 30 seconds.
+ */
+
+setInterval(
+    checkReminders,
+    30000
+);
+
+
+/*
+ * Check immediately when page loads.
+ */
+
+checkReminders();

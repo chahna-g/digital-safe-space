@@ -97,3 +97,114 @@ function displayEntries() {
 }
 
 displayEntries();
+/* MOOD TRACKER */
+
+let selectedMoods = [];
+
+document.querySelectorAll(".mood-option").forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const mood = this.getAttribute("data-mood");
+
+        if (selectedMoods.includes(mood)) {
+
+            selectedMoods = selectedMoods.filter(function(item) {
+                return item !== mood;
+            });
+
+            this.classList.remove("selected");
+
+        } else {
+
+            selectedMoods.push(mood);
+
+            this.classList.add("selected");
+        }
+    });
+});
+
+
+function saveMood() {
+
+    const date = document.getElementById("moodDate").value;
+    const note = document.getElementById("moodNote").value;
+
+    if (date === "") {
+        alert("Please select a date.");
+        return;
+    }
+
+    if (selectedMoods.length === 0) {
+        alert("Please select at least one mood.");
+        return;
+    }
+
+    const moodEntry = {
+        date: date,
+        moods: selectedMoods,
+        note: note
+    };
+
+    let moodEntries =
+        JSON.parse(localStorage.getItem("moodEntries")) || [];
+
+    moodEntries.push(moodEntry);
+
+    localStorage.setItem(
+        "moodEntries",
+        JSON.stringify(moodEntries)
+    );
+
+    alert("Your mood has been saved. 🌿");
+
+    document.getElementById("moodNote").value = "";
+
+    document.querySelectorAll(".mood-option").forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    selectedMoods = [];
+
+    displayMoodEntries();
+}
+
+
+function displayMoodEntries() {
+
+    const container =
+        document.getElementById("moodEntries");
+
+    if (!container) {
+        return;
+    }
+
+    const moodEntries =
+        JSON.parse(localStorage.getItem("moodEntries")) || [];
+
+    if (moodEntries.length === 0) {
+        container.innerHTML =
+            '<p class="empty-message">Your mood records will appear here.</p>';
+        return;
+    }
+
+    container.innerHTML = "";
+
+    moodEntries.slice().reverse().forEach(function(entry) {
+
+        const div = document.createElement("div");
+
+        div.className = "mood-entry";
+
+        div.innerHTML = `
+            <div class="mood-entry-date">${entry.date}</div>
+            <div class="mood-entry-moods">${entry.moods.join(" • ")}</div>
+            <div class="mood-entry-note">${entry.note || "No note added."}</div>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+
+displayMoodEntries();

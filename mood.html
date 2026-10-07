@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker | Digital Safe Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌿 Digital Safe Space</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="journal.html">Journal</a>
+        <a href="mood.html">Mood</a>
+        <a href="#">Calendar</a>
+    </nav>
+</header>
+
+<main class="mood-page">
+
+    <section class="mood-header">
+        <p class="welcome">YOUR EMOTIONAL SPACE</p>
+
+        <h1>How are you feeling <span>today?</span></h1>
+
+        <p>
+            You can choose more than one. Sometimes emotions can exist together.
+        </p>
+    </section>
+
+    <section class="mood-card">
+
+        <label for="moodDate">Date</label>
+
+        <input type="date" id="moodDate">
+
+        <h2>Choose your moods</h2>
+
+        <div class="mood-grid">
+
+            <button class="mood-option" data-mood="😊 Happy">
+                😊 <span>Happy</span>
+            </button>
+
+            <button class="mood-option" data-mood="🤩 Excited">
+                🤩 <span>Excited</span>
+            </button>
+
+            <button class="mood-option" data-mood="😌 Calm">
+                😌 <span>Calm</span>
+            </button>
+
+            <button class="mood-option" data-mood="🥰 Loved">
+                🥰 <span>Loved</span>
+            </button>
+
+            <button class="mood-option" data-mood="🌱 Hopeful">
+                🌱 <span>Hopeful</span>
+            </button>
+
+            <button class="mood-option" data-mood="😎 Relaxed">
+                😎 <span>Relaxed</span>
+            </button>
+
+            <button class="mood-option" data-mood="😔 Sad">
+                😔 <span>Sad</span>
+            </button>
+
+            <button class="mood-option" data-mood="🥺 Lonely">
+                🥺 <span>Lonely</span>
+            </button>
+
+            <button class="mood-option" data-mood="😰 Anxious">
+                😰 <span>Anxious</span>
+            </button>
+
+            <button class="mood-option" data-mood="😣 Stressed">
+                😣 <span>Stressed</span>
+            </button>
+
+            <button class="mood-option" data-mood="😡 Angry">
+                😡 <span>Angry</span>
+            </button>
+
+            <button class="mood-option" data-mood="😤 Frustrated">
+                😤 <span>Frustrated</span>
+            </button>
+
+            <button class="mood-option" data-mood="😕 Confused">
+                😕 <span>Confused</span>
+            </button>
+
+            <button class="mood-option" data-mood="😴 Tired">
+                😴 <span>Tired</span>
+            </button>
+
+            <button class="mood-option" data-mood="🫠 Overwhelmed">
+                🫠 <span>Overwhelmed</span>
+            </button>
+
+            <button class="mood-option" data-mood="🌫️ Can't describe">
+                🌫️ <span>Can't describe</span>
+            </button>
+
+        </div>
+
+        <label for="moodNote">Want to say a little more? <small>(Optional)</small></label>
+
+        <textarea
+            id="moodNote"
+            placeholder="What made you feel this way?"
+        ></textarea>
+
+        <button class="save-mood-button" onclick="saveMood()">
+            Save My Mood
+        </button>
+
+    </section>
+
+    <section class="mood-history">
+
+        <h2>Your Mood History</h2>
+
+        <div id="moodEntries">
+            <p class="empty-message">
+                Your mood records will appear here.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>🔒 Your space. Your thoughts. Your privacy.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

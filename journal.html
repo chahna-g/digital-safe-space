@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journal | Digital Safe Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌿 Digital Safe Space</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="journal.html">Journal</a>
+        <a href="#">Mood</a>
+        <a href="#">Calendar</a>
+    </nav>
+</header>
+
+<main class="journal-page">
+
+    <section class="journal-header">
+        <p class="welcome">YOUR PRIVATE JOURNAL</p>
+
+        <h1>How are you feeling <span>today?</span></h1>
+
+        <p>
+            Take a moment for yourself. Write freely — this is your space.
+        </p>
+    </section>
+
+    <section class="journal-card">
+
+        <label for="journalDate">Date</label>
+        <input type="date" id="journalDate">
+
+        <label>How are you feeling?</label>
+
+        <div class="mood-options">
+            <button type="button" onclick="selectMood('😊 Happy')">😊</button>
+            <button type="button" onclick="selectMood('😌 Calm')">😌</button>
+            <button type="button" onclick="selectMood('😔 Sad')">😔</button>
+            <button type="button" onclick="selectMood('😡 Angry')">😡</button>
+            <button type="button" onclick="selectMood('😰 Anxious')">😰</button>
+        </div>
+
+        <p id="selectedMood">No mood selected</p>
+
+        <label for="journalText">Write your thoughts</label>
+
+        <textarea
+            id="journalText"
+            placeholder="Write whatever is on your mind..."
+        ></textarea>
+
+        <button class="save-button" onclick="saveEntry()">
+            Save Journal Entry
+        </button>
+
+    </section>
+
+    <section class="entries-section">
+
+        <h2>Previous Entries</h2>
+
+        <div id="entries">
+            <p class="empty-message">
+                Your saved journal entries will appear here.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>🔒 Your space. Your thoughts. Your privacy.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
